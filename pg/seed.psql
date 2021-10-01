@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 13.3
--- Dumped by pg_dump version 13.3
+-- Dumped from database version 13.4
+-- Dumped by pg_dump version 13.4
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,6 +19,84 @@ SET row_security = off;
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
+
+--
+-- Name: authors; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.authors (
+    id integer NOT NULL,
+    first_name character varying,
+    last_name character varying,
+    avatar character varying
+);
+
+
+--
+-- Name: authors_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.authors_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: authors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.authors_id_seq OWNED BY public.authors.id;
+
+
+--
+-- Name: experience_entries; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.experience_entries (
+    id integer NOT NULL,
+    title character varying,
+    city character varying,
+    state character varying,
+    country character varying,
+    description character varying,
+    to_eat_text character varying,
+    to_do_text character varying,
+    to_see_text character varying,
+    mins_to_read integer,
+    date_uploaded date,
+    img character varying,
+    to_eat_img character varying,
+    to_do_img character varying,
+    to_see_img character varying,
+    author_id integer
+);
+
+INSERT INTO experience_entries (title, city, state, country, description, to_eat_text, to_do_text, to_see_text, mins_to_read,date_uploaded,img, to_eat_img, to_do_img, to_see_img, author_id) 
+VALUES ('The Fresh Alternative to Napa', 'Santa Rosa', 'CA', 'United States', 'Santa Rosa is a California city in Sonoma County. It's known for its many vineyards and wineries. It happens to be the furthest West one can go for ideal grape growing climate.', 'Located in the village shopping center, you’ll find a variety of food’s on Monti’s menu. Ranging from Seafood, Pasta, and Primerib there is something on the menu the whole family can enjoy. Since we are in wine country, don’t hesitate to check out the wine menu and pair it with some fresh-caught crab or chilled oysters.', 'If you are lucky enough to visit in late autumn, you can enjoy the pleasures of making wine. This includes picking grapes at the right time, removing the must at the right time, monitoring and regulating fermentation, and storing the wine long enough. The wine-making process can be divided into four distinct steps: harvesting and crushing grapes; fermenting must; ageing the wine; and packaging. There are many wineries that allow you to tour their site to view this process', ' Open during the last couple of weekends in Septemeber is the Sonoma County Art Trails. A true treat to see and a testament to the talent that resides in the hills North of the Bay. You can explore their artistic sanctuaries and discover the person behind those paintings, drawings, prints and sculptures in glass, wood, bronze, stone or clay… Listen to their stories and learn about the talent and skill involved to reach such beauty', 6, '2020-09-28', 'https://hrwatchdog.calchamber.com/wp-content/uploads/SonomaCounty.jpg','https://www.sonomacounty.com/sites/default/files/listing_images/profile/1452/dining_Montis_Santa_Rosa_patio_Sonoma_County_0020-886353d45056a36_886356c2-5056-a36a-079978f4b9421e00.jpg', 'https://photos.app.goo.gl/GAfqpKKSqECshLdC6', 'https://marinmagazine.com/wp-content/uploads/2021/08/Wolfe1-1540x1155.jpg', 1);
+
+--
+-- Name: experience_entries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.experience_entries_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: experience_entries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.experience_entries_id_seq OWNED BY public.experience_entries.id;
+
 
 --
 -- Name: tasks; Type: TABLE; Schema: public; Owner: -
@@ -51,10 +129,42 @@ ALTER SEQUENCE public.tasks_id_seq OWNED BY public.tasks.id;
 
 
 --
+-- Name: authors id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.authors ALTER COLUMN id SET DEFAULT nextval('public.authors_id_seq'::regclass);
+
+
+--
+-- Name: experience_entries id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.experience_entries ALTER COLUMN id SET DEFAULT nextval('public.experience_entries_id_seq'::regclass);
+
+
+--
 -- Name: tasks id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.tasks ALTER COLUMN id SET DEFAULT nextval('public.tasks_id_seq'::regclass);
+
+
+--
+-- Data for Name: authors; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.authors (id, first_name, last_name, avatar) FROM stdin;
+1	Shaylan	Hawthorne	https://media-exp1.licdn.com/dms/image/C5603AQH3FDiXv5x5rg/profile-displayphoto-shrink_800_800/0/1586221643520?e=1638403200&v=beta&t=2gn005LIJ_k1uLKBhZ7YYjfkZXowsztB0y3PN8IP_S8
+\.
+
+
+--
+-- Data for Name: experience_entries; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.experience_entries (id, title, city, state, country, description, to_eat_text, to_do_text, to_see_text, mins_to_read, date_uploaded, img, to_eat_img, to_do_img, to_see_img, author_id) FROM stdin;
+1	The Windy City	Chicago	IL	United States	All the windy city classics with a modern touch. A city made for those with eager stomachs and eyes	For food head on over to Au Cheval	To do, make sure to see a play at the red orchid theatre’	Use the boat tour to marvel at all the wonderful architecture	5	2020-02-28	https://images.pexels.com/photos/2700536/pexels-photo-2700536.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260	https://lh3.googleusercontent.com/proxy/kvvJMg2dHYM_BZ07IIozXEcNEJi4ZyiMuAuzIZt85YCoqv7CtE0N61SZOaPnnnk9gxizY4vFvAJN1eKjgli_mCZksBW-yynvSZKrFjCC70kqe24	https://img.broadstreetreview.com/content/uploads/SimpaticoMcCarter_BSRTtheater_092517.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=630&w=1200&s=4ac9435134bc2a29b6f03d6402b4f080	https://img.grouponcdn.com/deal/4JvRQkW2XeypWZWfpafrYooF42pc/4J-700x467/v1/c870x524.jpg	\N
+\.
 
 
 --
@@ -71,10 +181,40 @@ COPY public.tasks (id, name) FROM stdin;
 
 
 --
+-- Name: authors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.authors_id_seq', 1, true);
+
+
+--
+-- Name: experience_entries_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.experience_entries_id_seq', 4, true);
+
+
+--
 -- Name: tasks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.tasks_id_seq', 5, true);
+
+
+--
+-- Name: authors authors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.authors
+    ADD CONSTRAINT authors_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: experience_entries experience_entries_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.experience_entries
+    ADD CONSTRAINT experience_entries_pkey PRIMARY KEY (id);
 
 
 --

@@ -1,0 +1,39 @@
+h1, h4, .title{
+    font-family:'Lora', serif;
+    display: flex;
+    justify-content: center;
+}
+
+.body {
+    font-family: 'Nunito';
+    font-size: 25px ;
+    /* position: relative;
+    display: flex;
+    align-items: baseline; */
+}
+
+.formpage {
+    font-family: 'Nunito', sans-serif;
+    margin: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    border: none; 
+    outline: none;
+    /* flex-direction: column; */
+}
+
+.formpagebody {
+    font-size: 17px; 
+    display: grid;
+    grid-template-areas: 'leftcontent rightcontent';
+    width: 50%;
+    margin: auto;
+    grid-gap: 20px;
+    text-align: justify; 
+}
+
+.addexperience {
+    margin: 40px; 
+}
+

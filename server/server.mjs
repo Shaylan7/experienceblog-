@@ -2,10 +2,12 @@ import express from "express";
 import mime from "mime-types";
 
 import taskRouter from "./taskRouter.mjs";
+import experienceRouter from "./experienceRouter.mjs";
 
 const app = express();
 
 app.use("/api/tasks", taskRouter);
+app.use("/experiences", experienceRouter); 
 
 // Do not comment out or delete this end point. The React development server
 // won't start until it pings this end point successfully.

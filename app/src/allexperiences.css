@@ -1,0 +1,64 @@
+.all-experiences {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+.header{
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom:2%; 
+    font-family: 'Lora', serif;
+    font-size: 50px;
+}
+
+.heading6 {
+    font-weight: 100;
+}
+/* hr {
+    width: 70;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 2%; 
+    <hr style="width:35%;">
+} */
+.content-container {
+    display: grid;
+    grid-template-areas: 'left-content right-content';
+    width: 70%;
+    margin: auto;
+    grid-gap: 70px;
+    text-align: justify; 
+}
+
+.article {
+    margin-top: 2%;
+    margin-bottom:2%;
+    margin-bottom: 10px; 
+}
+
+.blog-photo-main {
+    height: 500px;
+    width: 700px; 
+}
+.blog-photo {
+    height: 300px;
+    width: 500px; 
+}
+
+.right-content .author-image{
+    height:200px;
+    width: 175px;
+    border-radius: 50%;
+    filter: grayscale(1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:2%;
+}
+
+.author-bio {
+    font-style: italic;
+    text-align: center;
+    font-size: 10px; 
+}

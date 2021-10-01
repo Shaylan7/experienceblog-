@@ -1,5 +1,9 @@
 export const getTasks = () => _get("/api/tasks");
 
+export const getExperienceEntries = () => _get("/experiences");
+
+export const addExperienceEntries = (entry) => _post("/experiences", entry);
+
 export const addTask = (name) => _post("/api/tasks", { name });
 
 const _get = async (url) => (await fetch(url)).json();
