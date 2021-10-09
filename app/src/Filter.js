@@ -4,10 +4,10 @@ import * as apiClient from "./apiClient";
 
 const Filter = (props) => {
   return (
-    <form>
+    <form className="search">
       <label>
         {" "}
-        Search by City
+        Search by City{" "}
         <input
           type="search"
           onChange={(e) => props.setSearchedTerm(e.currentTarget.value)}

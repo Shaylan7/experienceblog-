@@ -5,7 +5,7 @@ const db = initDb();
 
 export const getTasks = () => db.any("SELECT * FROM tasks");
 
-export const getExperienceEntries = () => db.any("SELECT title, city, state, country, description, to_eat_text, to_do_text, to_see_text, mins_to_read, date_uploaded::VARCHAR, img, to_eat_img, to_do_img, to_see_img, authors.first_name, authors.last_name, authors.bio FROM experience_entries LEFT JOIN authors on authors.id = experience_entries.author_id"); 
+export const getExperienceEntries = () => db.any("SELECT title, city, state, country, description, to_eat_text, to_do_text, to_see_text, mins_to_read, date_uploaded::VARCHAR, img, to_eat_img, to_do_img, to_see_img, authors.first_name, authors.last_name, authors.bio FROM experience_entries LEFT JOIN authors on authors.id = experience_entries.author_id ORDER BY title"); 
 
 export const addExperienceEntry = (entry) => 
   db.one(

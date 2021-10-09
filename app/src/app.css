@@ -1,3 +1,20 @@
+nav {
+    display: grid;
+    grid-template-areas: "nav-links";
+    font-family: 'Nunito', sans-serif;
+}
+
+li{
+    list-style: none;
+    display: inline;
+    padding: 10px; 
+    text-transform: uppercase;
+    cursor: pointer; 
+}
+li:hover {
+    font-weight: 900;
+}
+
 h1, h4, .title{
     font-family:'Lora', serif;
     display: flex;
@@ -14,26 +31,58 @@ h1, h4, .title{
 
 .formpage {
     font-family: 'Nunito', sans-serif;
-    margin: 20px;
+    margin-top: 20px;
+    margin-left: -10px; 
+    margin-right: -10px; 
     padding: 30px;
-    display: flex;
+    /* display: flex;
     justify-content: center;
+    flex-direction: column; */
     border: none; 
     outline: none;
+    background-color: #e3a477;
     /* flex-direction: column; */
 }
 
 .formpagebody {
     font-size: 17px; 
-    display: grid;
-    grid-template-areas: 'leftcontent rightcontent';
-    width: 50%;
+    /* padding-left: 25%; 
+    padding-right: auto; */
+    display: block;
+    /* grid-template-areas: 'left-content right-content'; */
+    width: 55%;
     margin: auto;
-    grid-gap: 20px;
-    text-align: justify; 
+    /* grid-gap: 20px; */
+    /* text-align: left;  */
+    columns: 100px 2; 
+    flex-direction: column;
 }
 
-.addexperience {
-    margin: 40px; 
+.left-content {
+    display: block; 
+    justify-content: left;
 }
 
+.right-content {
+    display: block; 
+    justify-content: right;
+}
+
+.label { display: inline-block; width: 300px; text-align: right; }
+
+
+.button:hover {
+    color: white;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color: #e3a477;
+    height: 100px; 
+}
+
+.experiencecard{
+    font-family: 'Nunito', sans-serif;
+}

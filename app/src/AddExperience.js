@@ -1,8 +1,8 @@
 import * as React from "react";
 
+import AddBoxIcon from "@mui/icons-material/AddBox";
+
 import * as apiClient from "./apiClient";
-import formphoto from "./formphoto.jpg";
-import "./addexperience.css";
 
 const AddExperience = () => {
   const [entries, setExperienceEntry] = React.useState([]);
@@ -64,46 +64,56 @@ const AddEntry = ({ addExperienceEntry }) => {
       <p className="title">Add an experience here</p>
       <div className="formpagebody">
         <form onSubmit={onSubmit}>
-          <div className="leftcontent">
-            <label>Entry Title:
+          <div className="left-content">
+            <label className="label">
+              Entry Title: {""}
               <input className="input" name="title" required />
             </label>
-            <label>
-              City:
+            <br />
+            <label className="label">
+              City: {""}
               <input className="input" name="city" required />
             </label>
-            <label>
-              State:
+            <br />
+            <label className="label">
+              State: {""}
               <input className="input" name="state" required />
             </label>
-            <label>
-              Country:
+            <br />
+            <label className="label">
+              Country: {""}
               <input className="input" name="country" required />
             </label>
-            <label>
-              Description:
+            <br />
+            <label className="label">
+              Description: {""}
               <input className="input" name="description" required />
             </label>
           </div>
-          <div className="rightcontent">
-            <label>
-              To Eat:
+          <br />
+          <div className="right-content">
+            <label className="label">
+              To Eat: {""}
               <input className="input" name="to_eat_text" required />
             </label>
-            <label>
-              To Do:
+            <br />
+            <label className="label">
+              To Do: {""}
               <input className="input" name="to_do_text" required />
             </label>
-            <label>
-              To See:
+            <br />
+            <label className="label">
+              To See: {""}
               <input className="input" name="to_see_text" required />
             </label>
-            <label>
-              Mins to read:
+            <br />
+            <label className="label">
+              Mins to read: {""}
               <input className="input" name="mins_to_read" required />
             </label>
-            <label>
-              Date:
+            <br />
+            <label className="label">
+              Date: {""}
               <input
                 className="input"
                 name="date_uploaded"
@@ -111,6 +121,7 @@ const AddEntry = ({ addExperienceEntry }) => {
                 required
               />
             </label>
+            <br />
             {/* <label>
         To Eat Photo
         <input name="image" type="file" />
@@ -123,7 +134,15 @@ const AddEntry = ({ addExperienceEntry }) => {
         To See Photo
         <input name="image" type="file" />
       </label> */}
-            <button>Add Experience</button>
+            <button
+              className="button"
+              style={{
+                backgroundColor: "#e3a477",
+                border: "none",
+              }}
+            >
+              <AddBoxIcon />{" "}
+            </button>
           </div>
         </form>
       </div>

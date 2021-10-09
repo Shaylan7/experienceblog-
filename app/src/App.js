@@ -1,5 +1,8 @@
 import * as React from "react";
 
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
@@ -10,23 +13,47 @@ import AllExperiences from "./AllExperiences.js";
 import background from "./BlogBackground.png";
 import ExperienceCard from "./ExperienceCard.js";
 import Filter from "./Filter.js";
+import Gallery from "./Gallery.js";
 import "./app.css";
 
 const App = () => (
   <>
-    <nav>
-      <Link to="/">Home</Link> | <Link to="dashboard">Add Experience</Link> |{" "}
-      <Link to="allexperiences">All Experiences</Link>
+    <nav className="nav-links">
+      <ul>
+        <li>
+          <Link to="/">Home</Link>{" "}
+        </li>
+        <li>
+          {" "}
+          <Link to="addExperience">Add Experience</Link>{" "}
+        </li>
+        <li>
+          <Link to="allexperiences">All Experiences</Link>{" "}
+        </li>
+        <li>
+          <Link to="gallery">Gallery</Link>
+        </li>
+        <li>Travel Tips</li>
+      </ul>
     </nav>
     <main>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<AddEntry />} />
+        <Route path="/addExperience" element={<AddEntry />} />
         <Route path="/allexperiences" element={<Experiences />} />
+        <Route path="gallery" element={<GalleryPage />} />
       </Routes>
     </main>
   </>
 );
+
+const GalleryPage = () => {
+  return (
+    <>
+      <Gallery />
+    </>
+  );
+};
 
 const Home = () => {
   const [searchedTerm, setSearchedTerm] = React.useState("");
@@ -58,7 +85,12 @@ const Home = () => {
           <div className="experiencecard">
             <ExperienceCard searchedTerm={searchedTerm} />
           </div>
-          <AddExperience className="addexperience" />
+          <AddExperience />
+        </div>
+        <div className="socials">
+          <InstagramIcon style={{ padding: 10 }} />
+          <FacebookIcon style={{ padding: 10 }} />
+          <TwitterIcon style={{ padding: 10 }} />
         </div>
       </Box>
     </>
